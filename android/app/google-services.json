@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "245005982776",
+    "project_id": "get-daily-information",
+    "storage_bucket": "get-daily-information.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:245005982776:android:b0db62c6a6c6113d065acd",
+        "android_client_info": {
+          "package_name": "com.example.get_daily_information"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD5YKq_OsE2rmeQOi7H_hDcB3QAP74aQmQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
