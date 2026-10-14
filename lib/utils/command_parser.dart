@@ -29,7 +29,7 @@ class CommandParser {
 
     if (text.contains('keluar') ||
         text.contains('logout')) {
-      return 'logout';
+      return 'exitapplication';
     }
 
     return 'unknown';

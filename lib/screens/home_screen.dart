@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
-import '../services/auth_service.dart';
+
 import '../services/speech_service.dart';
 import '../services/tts_service.dart';
 import '../services/weather_service.dart';
 import '../utils/command_parser.dart';
-import 'login_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -18,7 +18,6 @@ class _HomeScreenState extends State<HomeScreen> {
   final TtsService _ttsService = TtsService();
   final SpeechService _speechService = SpeechService();
   final CommandParser _commandParser = CommandParser();
-  final AuthService _authService = AuthService();
   final WeatherService _weatherService = WeatherService();
 
   bool _isListening = false;
@@ -113,8 +112,8 @@ class _HomeScreenState extends State<HomeScreen> {
       await _sayWeather();
       break;
 
-    case 'logout':
-      await _logout();
+    case 'exitapplication':
+      await _exitApplication();
       break;
 
     default:
@@ -255,24 +254,18 @@ await _ttsService.speak(_lastResponse);
   }
 }
 
-  Future<void> _logout() async {
+  Future<void> _exitApplication() async {
     await _ttsService.speak(
-      'Anda akan keluar dari aplikasi.',
+      'Terima kasih telah menggunakan Get Daily Information. '
+      'Sampai jumpa!',
     );
 
-    await _authService.logout();
+    // Delay untuk memastikan TTS selesai sebelum keluar
+    await Future.delayed(const Duration(seconds: 2));
 
-    if (!mounted) return;
-
-    Navigator.pushAndRemoveUntil(
-      context,
-      MaterialPageRoute(
-        builder: (_) => const LoginScreen(),
-      ),
-      (route) => false,
-    );
+    SystemNavigator.pop();
   }
-
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
