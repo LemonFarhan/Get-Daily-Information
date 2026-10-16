@@ -239,10 +239,6 @@ class _WelcomeScreenState
 
                 const SizedBox(height: 40),
 
-                // =================================================
-                // LOGIN MANUAL
-                // =================================================
-
                 SizedBox(
                   width: double.infinity,
                   height: 60,
@@ -272,11 +268,7 @@ class _WelcomeScreenState
                 ),
 
                 const SizedBox(height: 15),
-
-                // =================================================
-                // DAFTAR MANUAL
-                // =================================================
-
+                // manual?
                 SizedBox(
                   width: double.infinity,
                   height: 60,
